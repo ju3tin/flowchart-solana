@@ -1,37 +1,200 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Solana FlowCode
+
+A monorepo containing a **Next.js** front-end (`client`) and a **TypeScript**-based Express server (`server`). The client is served on **localhost:3000** (by default) while the server listens on **localhost:9999** (by default). This repository also includes some additional directories and tooling.
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Directory Structure](#directory-structure)
+3. [Getting Started](#getting-started)
+   1. [Prerequisites](#prerequisites)
+   2. [Installation](#installation)
+   3. [Environment Variables](#environment-variables)
+   4. [Running the Client](#running-the-client)
+   5. [Running the Server](#running-the-server)
+4. [Scripts](#scripts)
+5. [Contributing](#contributing)
+6. [License](#license)
+
+---
+
+## Overview
+
+- **Front-end**: A Next.js application built with TypeScript, Tailwind CSS, and various other libraries.  
+- **Back-end**: A Node/Express application (written in TypeScript) that handles API requests, authentication, and various endpoints (e.g., `/auth`, `/projects`, `/files`, `/org`, `/tasks`, `/ai`, `/container`).  
+
+This project uses a [PNPM workspace](https://pnpm.io/workspaces) for managing dependencies. Each package (`client` and `server`) has its own `package.json`, while some dependencies and configurations might be shared across the monorepo.
+
+---
+
+## Directory Structure
+
+```
+FLOWCODE (root)
+├─ .github/              # GitHub Actions / Workflows
+├─ client/               # Next.js (frontend)
+│  ├─ .next/             # Build artifacts
+│  ├─ node_modules/
+│  ├─ public/            # Static assets
+│  ├─ src/
+│  │  ├─ api/            # API utilities for client-side
+│  │  └─ app/            
+│  │     ├─ (auth)/      # Auth routes
+│  │     ├─ (protected)/ # Protected routes
+│  │     ├─ layout.tsx
+│  │     └─ page.tsx
+│  ├─ middleware.ts
+│  ├─ .env*              # Environment variables (dev, production, etc.)
+│  ├─ package.json
+│  └─ ... other config files
+├─ docker-base-image/    # Docker base image for the generated user project
+├─ node_modules/         
+├─ projects/             # (No longer used since user project is now dockerized)
+├─ server/               # Express (backend)
+│  ├─ node_modules/
+│  ├─ src/
+│  │  ├─ config/         # Configurations (DB, etc.)
+│  │  ├─ controllers/    # Express controllers
+│  │  ├─ data/
+│  │  ├─ middleware/     # Express/Custom middleware
+│  │  ├─ routes/         # Route definitions
+│  │  ├─ types/          # TypeScript type definitions
+│  │  ├─ utils/
+│  │  ├─ app.ts          # Express app entry
+│  │  └─ server.ts       # Another possible server entry or runner
+│  ├─ .env               # Environment variables for server
+│  ├─ package.json
+│  └─ tsconfig.json
+├─ .gitignore
+├─ pnpm-lock.yaml
+├─ pnpm-workspace.yaml
+└─ README.md             
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- **Node.js** (Recommended ≥ 20.18.3)
+- **PNPM** (Recommended ≥ 10.6.5)  
+  If you do not have PNPM installed globally, you can install it with:
+  ```bash
+  npm install -g pnpm
+  ```
+- **TypeScript** (installed locally in each package)
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/ChainLabs-Technologies/solana-flowcode.git
+   ```
+
+2. **Install dependencies** (at the monorepo root):
+   ```bash
+   pnpm install
+   ```
+   This will install dependencies for both `client` and `server`.
+
+---
+
+### Environment Variables
+
+- **Client**:
+  - The Next.js client expects environment files (e.g., `.env.local`, `.env.development`, `.env.production`).
+  - Create a `.env.local` file under the `client` folder (ignored by Git) and add required variables:
+    ```ini
+    OPEN_AI_API_KEY=sk_proj_xxxxxx
+    ```
+  - Remember that any variables without `NEXT_PUBLIC_` stay server-side in Next.js, and variables with `NEXT_PUBLIC_` are exposed to the browser.
+
+- **Server**:
+  - **Required variables**:
+    ```ini
+    PORT=9999
+    JWT_SECRET=YOUR_JWT_SECRET
+    ROOT_FOLDER=/path/to/projects
+    WALLETS_FOLDER=/path/to/wallets
+    DB_USER=YOUR_DB_USER
+    DB_HOST=YOUR_DB_HOST
+    DB_PORT=5432
+    DB_NAME=YOUR_DB_NAME
+    DB_PASSWORD=YOUR_DB_PASSWORD
+    OPENAI_API_KEY=sk-xxxxxxx
+    ```
+  - Ensure `.env` is added to `.gitignore` to keep sensitive info private.
+
+---
+
+### Running the Client
+
+Inside the **root** directory (or inside `client` directly):
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm dev --filter client
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Default port**: http://localhost:3000
+- This runs the Next.js development server with hot reloading.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Running the Server
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Inside the **root** directory (or inside `server` directly):
 
-## Learn More
+```bash
+pnpm dev --filter server
+```
 
-To learn more about Next.js, take a look at the following resources:
+- **Default port**: http://localhost:9999
+- This starts the Express server in development mode using `ts-node`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+**From the root** (using [pnpm filters](https://pnpm.io/cli/filter)):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `pnpm dev --filter client`: Run the client in development mode.  
+- `pnpm dev --filter server`: Run the server in development mode.  
+- `pnpm build --filter client`: Build the Next.js client for production.  
+- `pnpm build --filter server`: Compile TypeScript server code.  
+- `pnpm start --filter client`: Start the client in production mode.  
+- `pnpm start --filter server`: Start the server from compiled output.  
+- `pnpm lint --filter client`: Lint the client.  
+- `pnpm test --filter client`: Run the client's placeholder test script.
+- `pnpm test --filter server`: Run the server's placeholder test script.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+(See each `package.json` for more scripts.)
+
+---
+
+## Testing
+
+Both the client and server currently have placeholder test scripts.  
+You can run:
+
+```bash
+pnpm test --filter client
+pnpm test --filter server
+```
+
+---
+
+## Contributing
+
+1. **Fork** the repository.  
+2. **Create** a feature branch.  
+3. **Commit** your changes.  
+4. **Push** to your branch.  
+5. Open a **Pull Request**.
+
+---
+
+## License
+
+*Licensing will be added in the future.*
+
+
 # flowchart-solana
