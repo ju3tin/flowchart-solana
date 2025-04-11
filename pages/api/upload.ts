@@ -1,21 +1,35 @@
+// pages/api/upload.ts
+import type { NextApiRequest, NextApiResponse } from 'next';
+import multer from 'multer';
 import { put } from '@vercel/blob';
-import { NextRequest } from 'next/server';
 
-export async function POST(req: NextRequest) {
+const upload = multer({ storage: multer.memoryStorage() }); // Use memory storage for simplicity
+
+export const config = {
+  api: {
+    bodyParser: false, // Disable Next.js body parsing to use multer
+  },
+};
+
+const handler = upload.single('file'), async (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
   try {
-    const formData = await req.formData();
-    const file = formData.get('file') as File;
+    const file = req.file; // Access the uploaded file
 
     if (!file) {
-      return new Response(JSON.stringify({ error: 'No file uploaded.' }), { status: 400 });
+      return res.status(400).json({ error: 'No file uploaded.' });
     }
 
-    const blob = await put(file.name, file, { access: 'public' });
+    const blob = await put(file.originalname, file.buffer, { access: 'public' });
 
-    return Response.json(blob);
-
-  } catch (error: any) {
+    res.status(200).json(blob);
+  } catch (error) {
     console.error(error);
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    res.status(500).json({ error: (error as Error).message });
   }
-}
+};
+
+export default handler;
