@@ -23,6 +23,7 @@ export default function UploadPage() {
       
       const data = await res.json();
       console.log('File uploaded:', data.url);
+  };
 
   return (
     <div className="p-4">
@@ -32,5 +33,4 @@ export default function UploadPage() {
       </button>
     </div>
   );
-}
 }
