@@ -1,4 +1,5 @@
-import { Request, Response, NextFunction, RequestHandler } from 'express';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextHandler } from 'next-connect'; // Optional, if using next-connect
 import jwt from 'jsonwebtoken';
 
 interface DecodedToken {
@@ -13,21 +14,17 @@ interface DecodedToken {
   openai_api_key: string;
 }
 
-declare global {
-  namespace Express {
-    interface Request {
-      user?: DecodedToken;
-    }
-  }
+// Extend the default NextApiRequest to include `user`
+export interface AuthenticatedNextApiRequest extends NextApiRequest {
+  user?: DecodedToken;
 }
 
-export const authMiddleware: RequestHandler = (
-  req: Request,
-  res: Response,
-  next: NextFunction
+export const authMiddleware = async (
+  req: AuthenticatedNextApiRequest,
+  res: NextApiResponse,
+  next: () => void
 ) => {
   // TEMPORARY BYPASS: Authentication is temporarily disabled
-  // Set a hard-coded user object with a valid UUID to ensure DB queries work
   req.user = {
     id: '1510e5d3-e491-4ebd-b22e-595f42b663da',
     org_id: '75a7c5e3-567c-4cc2-ba1a-a12774aa0406',
@@ -39,17 +36,16 @@ export const authMiddleware: RequestHandler = (
     wallet_private_key: '',
     openai_api_key: process.env.OPENAI_API_KEY || '',
   };
-  
-  // Proceed to the protected route
+
   next();
-  
+
   /* ORIGINAL AUTH CODE - COMMENTED OUT TEMPORARILY
-  const cookieToken = req.cookies?.token; // Using cookie-parser
+  const cookieToken = req.cookies?.token;
   const authHeader = req.headers['authorization'];
   const headerToken = authHeader && authHeader.split(' ')[1];
 
   const token = cookieToken || headerToken;
-  
+
   if (!token) {
     res.status(401).json({ message: 'No token, authorization denied' });
     return;
