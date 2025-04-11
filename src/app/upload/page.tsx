@@ -12,13 +12,17 @@ export default function UploadPage() {
     formData.append('file', file);
 
     const res = await fetch('/api/upload', {
-      method: 'POST',
-      body: formData,
-    });
-
-    const data = await res.json();
-    console.log('File URL:', data.url);
-  };
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (!res.ok) {
+        const errorData = await res.text(); // If the response is not JSON
+        throw new Error(`Upload failed: ${errorData}`);
+      }
+      
+      const data = await res.json();
+      console.log('File uploaded:', data.url);
 
   return (
     <div className="p-4">
@@ -28,4 +32,5 @@ export default function UploadPage() {
       </button>
     </div>
   );
+}
 }

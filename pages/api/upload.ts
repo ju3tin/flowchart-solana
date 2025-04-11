@@ -1,17 +1,21 @@
 import { put } from '@vercel/blob';
-import { NextRequest } from 'next/server'; // If using App Router
+import { NextRequest } from 'next/server';
 
 export async function POST(req: NextRequest) {
-  const formData = await req.formData();
-  const file = formData.get('file') as File;
+  try {
+    const formData = await req.formData();
+    const file = formData.get('file') as File;
 
-  if (!file) {
-    return new Response('No file uploaded.', { status: 400 });
+    if (!file) {
+      return new Response(JSON.stringify({ error: 'No file uploaded.' }), { status: 400 });
+    }
+
+    const blob = await put(file.name, file, { access: 'public' });
+
+    return Response.json(blob);
+
+  } catch (error: any) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
   }
-
-  const blob = await put(file.name, file, {
-    access: 'public', // or 'private' if you want secured files
-  });
-
-  return Response.json(blob); // blob.url is the file URL!
 }
