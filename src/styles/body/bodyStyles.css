@@ -1,0 +1,13 @@
+:root {
+    /* Light Mode */
+    --popover-body-bg-light: #fff;
+    --popover-button-bg-light: #80a3ff;
+    --popover-body-border-light: #939393;
+    --popover-field-bg-light: #f5f5f5;
+
+    /* Dark Mode */ 
+    --popover-body-bg-dark: #1b1e27;
+    --popover-button-bg-dark: #80a3ff;
+    --popover-body-border-dark: #282a2e;
+    --popover-field-bg-dark: #90a1cf;
+}

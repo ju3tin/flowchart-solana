@@ -1,0 +1,7 @@
+:root {
+/* Light Mode */
+    --filetree-color-light: #3e3e3e;
+
+/* Dark Mode */
+    --filetree-color-dark: #b42e2e;
+}

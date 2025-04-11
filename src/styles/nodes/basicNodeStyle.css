@@ -1,0 +1,90 @@
+:root {
+    /* Dark background gradients */
+    --dark-gradient-start: #1a1e2e;
+    --dark-gradient-end: #141824;
+    
+    /* Lighter (header) background gradient */
+    --header-gradient-start: #1e2235;
+    --header-gradient-end: #1a1e2e;
+    
+    /* Node backgrounds */
+    --node-background-light: white;
+    --node-background-dark: linear-gradient(to bottom, var(--dark-gradient-start) 0%, var(--dark-gradient-end) 100%);
+  
+    /* Borders */
+    --node-border-light: gray;
+    --node-border-dark: #2a2b36;
+  
+    /* Headers */
+    --node-header-bg-light: #f0f0f0;
+    --node-header-bg-dark: linear-gradient(to right, var(--header-gradient-start), var(--header-gradient-end));
+  
+    /* Text colors */
+    --node-text-light: #000;
+    --node-text-dark: #d5d8e2;
+  
+    --node-text-muted-light: #666;
+    --node-text-muted-dark: #6e717f;
+  
+    /* Accent colors */
+    --node-accent-light: #00a6ed;
+    --node-accent-dark: #00bbff;
+
+    /* Accent gradients for node top bars */
+    --blue-accent-start: #4dabf7;
+    --blue-accent-end: #3b8fd7;
+    --green-accent-start: #22c55e;
+    --green-accent-end: #15803d;
+    --red-accent-start: #ef4444;
+    --red-accent-end: #b91c1c;
+    --yellow-accent-start: #f59e0b;
+    --yellow-accent-end: #d97706;
+
+    /* Instruction header background */
+    --node-instruction-header-bg-light: linear-gradient(to right, var(--blue-accent-start), var(--blue-accent-end));
+    --node-instruction-header-bg-dark: linear-gradient(to right, var(--blue-accent-start), var(--blue-accent-end));
+    
+    /* Input header background */
+    --node-input-header-bg-light: linear-gradient(to right, var(--green-accent-start), var(--green-accent-end));
+    --node-input-header-bg-dark: linear-gradient(to right, var(--green-accent-start), var(--green-accent-end));
+    
+    /* Error codes header background */
+    --node-error-header-bg-light: linear-gradient(to right, var(--red-accent-start), var(--red-accent-end));
+    --node-error-header-bg-dark: linear-gradient(to right, var(--red-accent-start), var(--red-accent-end));
+    
+    /* Events header background */
+    --node-events-header-bg-light: linear-gradient(to right, var(--yellow-accent-start), var(--yellow-accent-end));
+    --node-events-header-bg-dark: linear-gradient(to right, var(--yellow-accent-start), var(--yellow-accent-end));
+    
+    /* Context header background */
+    --node-context-header-bg-light: linear-gradient(to right, var(--blue-accent-start), var(--blue-accent-end));
+    --node-context-header-bg-dark: linear-gradient(to right, var(--blue-accent-start), var(--blue-accent-end));
+
+    /* Handles */
+    --node-handle-light: #ffffff;
+    --node-handle-dark: #293035;  
+    
+    /* Input elements */
+    --node-input-light: #e0e0e0;
+    --node-input-dark: #13141f;
+
+    --node-input-border-light: #e0e0e0;
+    --node-input-border-dark: #2a2b36;
+
+    --node-input-text-light: #000;
+    --node-input-text-dark: #d5d8e2;
+    
+    /* Sections background */
+    --node-section-bg-light: #f7f7f7;
+    --node-section-bg-dark: #161a28;
+    
+    /* Badge backgrounds */
+    --blue-badge-bg: rgba(77, 171, 247, 0.1);
+    --blue-badge-color: #4dabf7;
+    --green-badge-bg: rgba(34, 197, 94, 0.1);
+    --green-badge-color: #22c55e;
+    --red-badge-bg: rgba(239, 68, 68, 0.1);
+    --red-badge-color: #ef4444;
+    --yellow-badge-bg: rgba(245, 158, 11, 0.1);
+    --yellow-badge-color: #f59e0b;
+  }

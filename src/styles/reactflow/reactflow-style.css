@@ -1,0 +1,79 @@
+.reactflow-dark-controls {
+    background-color: #171819 !important;
+    border: none !important;       /* remove outline if desired */
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .reactflow-dark-controls button {
+    background-color: #171819 !important;
+    color: #A0AEC0 !important; 
+    border: none;
+    border-radius: 4px;
+    margin: 0 4px;
+    padding: 6px 8px;
+  }
+  
+  .reactflow-dark-controls button svg {
+    fill: #A0AEC0 !important; 
+  }
+  
+  .reactflow-dark-controls button:hover {
+    background-color: #262D3F !important;
+  }
+
+/* General styles for React Flow */
+.react-flow__node {
+  transition: all 0.2s ease;
+}
+
+/* Node styling */
+.parent-node {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: rgba(22, 26, 38, 0.6);
+}
+
+.parent-node:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* When dragging, ensure proper highlighting */
+.react-flow__node.selected {
+  box-shadow: 0 0 0 2px #4d7cfe;
+}
+
+/* Custom styling for expanded nodes */
+.react-flow__node[data-expanded="true"] {
+  background-color: rgba(22, 26, 38, 0.6);
+}
+
+/* Improve the appearance of connections */
+.react-flow__edge .react-flow__edge-path {
+  stroke-dasharray: 5, 5;
+  animation: flowAnimation 30s linear infinite;
+}
+
+@keyframes flowAnimation {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+/* Enhance the selection appearance */
+.react-flow__node.selected .node-header {
+  background-color: #1c2649;
+}
+
+/* Enhanced dark theme for nodes */
+.react-flow {
+  background-color: #121214;
+}
+
+.react-flow__node {
+  color: white;
+}
+
+/* Fix any Z-index issues with handles */
+.react-flow__handle {
+  z-index: 3;
+}

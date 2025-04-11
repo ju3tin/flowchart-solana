@@ -1,0 +1,16 @@
+:root {
+    /* Light Mode */
+    --settings-menu-bg-light: #fbfbfb;
+    --settings-menu-border-light: #dddddd;
+    --settings-menu-color-light: #2d2d2d;
+
+    --filetree-color-light: #3e3e3e;
+
+    /* Dark Mode */
+    --settings-menu-bg-dark: #2d2d2d;
+    --settings-menu-border-dark: #646464;
+    --settings-menu-color-dark: #9a9a9a;
+
+    --filetree-color-dark: #d6d6d6;
+
+}

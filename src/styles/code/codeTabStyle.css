@@ -1,0 +1,7 @@
+:root {
+    /* Light mode */
+    --terminal-bg-light: #f0f0f0;
+
+    /* Dark mode */
+    --terminal-bg-dark: #b44545;
+}

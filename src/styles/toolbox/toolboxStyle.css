@@ -1,0 +1,29 @@
+:root {
+/* Light Mode */
+    --toolbox-bg-light: #ffffff;
+    --toolbox-bg-dark: #0d1117;
+
+    --toolbox-border-light: #d8d8d8;
+    --toolbox-border-dark: #24263a;
+
+    --toolbox-fg-light: #292929;
+    --toolbox-fg-dark: #6a6a6a;
+
+    --toolbox-item-bg-light: #ebebeb;
+    --toolbox-item-bg-dark: #2b2f42;
+
+    --toolbox-item-border-light: #d8d8d8;
+    --toolbox-item-border-dark: #23293a;
+
+    --tabs-color-light: #292929;
+    --tabs-color-dark: #bbbbbb;    
+
+    --tabs-divider-light: #d8d8d8;
+    --tabs-divider-dark: #272e3f;   
+
+    --accordion-item-bg-light: #ebebeb;
+    --accordion-item-bg-dark: #0f0f0f;  
+
+    --accordion-item-border-light: #d8d8d8;
+    --accordion-item-border-dark: #1e2339;
+}

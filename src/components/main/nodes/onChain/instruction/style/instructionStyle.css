@@ -1,0 +1,340 @@
+:root {
+    --node-instruction-header-bg-light: #2a3a63;
+    --node-instruction-header-bg-dark: #2a3a63;
+}
+
+/* V0 Instruction Node Styles */
+.parent-node {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.parent-node:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Animated border for selected nodes */
+@keyframes border-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.react-flow__node.selected {
+    z-index: 5 !important;
+    /* Remove default React Flow selection styles */
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.react-flow__node.selected .parent-node {
+    border-color: transparent !important;
+    position: relative;
+    z-index: 1;
+}
+
+.react-flow__node.selected .parent-node::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        #5f88dc,
+        #1cf6a0,
+        #9945ff,
+        #5f88dc
+    );
+    background-size: 300% 300%;
+    animation: border-gradient 3s ease infinite;
+    pointer-events: none;
+}
+
+/* Shimmer and animation effects */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #1a1a24;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #1a1a24;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 4px;
+    border: 2px solid #1a1a24;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #444;
+}
+
+/* Instruction node backgrounds and colors */
+.instruction-background {
+    background-color: #121218;
+}
+
+.instruction-secondary-bg {
+    background-color: #1a1a24;
+}
+
+.instruction-section-bg {
+    background-color: #2a2a2d;
+}
+
+.instruction-border {
+    border-color: #333;
+}
+
+.instruction-text {
+    color: #e1e2e6;
+}
+
+.instruction-text-muted {
+    color: #888;
+}
+
+.instruction-purple {
+    color: #5d5dff;
+}
+
+.instruction-green {
+    color: #36b37e;
+}
+
+.instruction-yellow {
+    color: #d69e2e;
+}
+
+.instruction-red {
+    color: #e53e3e;
+}
+
+.instruction-badge-bg {
+    background-color: #121218;
+}
+
+/* Interactive form elements */
+input.instruction-input {
+    background-color: #121218;
+    border: 1px solid #333;
+    color: #e1e2e6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+}
+
+input.instruction-input:focus {
+    outline: none;
+    border-color: #5d5dff;
+    box-shadow: 0 0 0 1px #5d5dff;
+}
+
+.instruction-input-purple:focus {
+    border-color: #5d5dff;
+    box-shadow: 0 0 0 1px #5d5dff;
+}
+
+.instruction-input-green:focus {
+    border-color: #36b37e;
+    box-shadow: 0 0 0 1px #36b37e;
+}
+
+.instruction-input-yellow:focus {
+    border-color: #d69e2e;
+    box-shadow: 0 0 0 1px #d69e2e;
+}
+
+.instruction-input-red:focus {
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 1px #e53e3e;
+}
+
+/* Section transition effects */
+.section-transition {
+    transition: all 0.2s ease;
+}
+
+/* Glow effects */
+.purple-glow {
+    box-shadow: 0 0 5px rgba(93, 93, 255, 0.5);
+}
+
+.green-glow {
+    box-shadow: 0 0 5px rgba(54, 179, 126, 0.5);
+}
+
+.yellow-glow {
+    box-shadow: 0 0 5px rgba(214, 158, 46, 0.5);
+}
+
+.red-glow {
+    box-shadow: 0 0 5px rgba(229, 62, 62, 0.5);
+}
+
+/* Handle styling */
+.react-flow__handle {
+    background-color: #5d5dff;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #121218;
+    box-shadow: 0 0 5px rgba(93, 93, 255, 0.5);
+}
+
+/* Rounded corners and other styles */
+.rounded-badge {
+    border-radius: 2px;
+}
+
+.hover-opacity {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.group:hover .hover-opacity {
+    opacity: 1;
+}
+
+/* Give some spacing for the child nodes inside the parent */
+.parent-node > .react-flow__resize-control {
+    z-index: 10;
+}
+
+/* Make sure child nodes are above the parent background but below controls */
+.parent-node > .react-flow__nodes {
+    z-index: 5;
+}
+
+/* Add subtle styling to the grid background of parent nodes */
+.parent-node::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(100, 100, 100, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 100, 100, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* For proper event handling in React Flow */
+.instruction-content {
+    touch-action: none;
+}
+
+/* Decorative elements for sections */
+.section-decoration::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2px;
+}
+
+.section-decoration--purple::before {
+    background: linear-gradient(to bottom, #5d5dff, rgba(93, 93, 255, 0.3));
+}
+
+.section-decoration--green::before {
+    background: linear-gradient(to bottom, #36b37e, rgba(54, 179, 126, 0.3));
+}
+
+.section-decoration--yellow::before {
+    background: linear-gradient(to bottom, #d69e2e, rgba(214, 158, 46, 0.3));
+}
+
+.section-decoration--red::before {
+    background: linear-gradient(to bottom, #e53e3e, rgba(229, 62, 62, 0.3));
+}
+
+/* Input field styling */
+.editable-field {
+    position: relative;
+}
+
+.editable-field .edit-button {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.editable-field:hover .edit-button {
+    opacity: 1;
+}
+
+.editable-input {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #5d5dff;
+    border-radius: 2px;
+    padding: 2px 4px;
+    color: #e1e2e6;
+    font-size: inherit;
+}
+
+.editable-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #5d5dff;
+}

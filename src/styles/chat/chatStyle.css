@@ -1,0 +1,174 @@
+:root {
+
+    --chat-bg-light: #fafafa;
+    --chat-bg-dark: #0d1117;
+
+    --message-ai-bg-light: #ebebeb;
+    --message-ai-bg-dark: #151a28;
+    --message-ai-text-light: #2d2d2d;
+    --message-ai-text-dark: #b8becd;
+
+    --message-user-bg-light: #a5bfff;
+    --message-user-bg-dark: #5c75b5;
+    --message-user-text-light: #ffffff;
+    --message-user-text-dark: #ffffff;
+
+    --message-user-source-bg-light: #a5bfff;
+    --message-user-source-bg-dark: #5c75b5;
+    --message-user-source-text-light: #ffffff;
+    --message-user-source-text-dark: #ffffff;
+
+    --message-ai-source-bg-light: #ebebeb;
+    --message-ai-source-bg-dark: #151a28;
+    --message-ai-source-text-light: #252525;
+    --message-ai-source-text-dark: #b8becd;
+
+    --chat-border-color-light: #f1f1f1;
+    --chat-border-color-dark: #0c0e1a;
+
+    --send-button-bg-light: #1c1c1c;
+    --send-button-bg-dark: #ffffff;
+    --send-button-text-light: #ffffff;
+    --send-button-text-dark: #181818;
+
+    --message-box-bg-light: #f3f3f3;
+    --message-box-bg-dark: #101520;
+    --message-box-text-light: #212121;
+    --message-box-text-dark: #8c9ac6;   
+    --message-box-border-light: #5a5a5a;
+    --message-box-border-dark: #272a46;
+
+    --add-file-button-color-light: #0b0b0b;
+    --add-file-button-color-dark: #ffffff;
+
+    --selected-file-context-bg-light: #ffffff;
+    --selected-file-context-bg-dark: #161924;
+    --selected-file-context-border-color-light: #5a5a5a;
+    --selected-file-context-border-color-dark: #1c1d32;
+
+    --selected-file-context-text-color-light: #000000;
+    --selected-file-context-text-color-dark: #b4bacb;
+
+    --select-file-modal-bg-light: #ffffff;
+    --select-file-modal-bg-dark: #151515;
+    --select-file-modal-text-color-light: #000000;
+    --select-file-modal-text-color-dark: #cfcfcf;   
+    --select-file-modal-text-path-color-light: #000000;
+    --select-file-modal-text-path-color-dark: #7e7e7e;
+    --bottom-divider-color-light: #5a5a5a;
+    --bottom-divider-color-dark: #454545;   
+}
+
+/* USER MESSAGES (arrow on bottom-right) */
+.user-message {
+    position: relative;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--bubbleColor);
+}
+.user-message::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -16px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: var(--bubbleColor);
+}
+
+/* AI MESSAGES (arrow on bottom-left) */
+.ai-message {
+    position: relative;
+    max-width: 80%;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--bubbleColor);
+}
+.ai-message::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -16px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right-color: var(--bubbleColor);
+}
+
+/* Message container */
+.message-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    font-size: 12px; 
+    justify-content: space-between;
+    border-left: none;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Message bubble */
+.message-bubble {
+    min-width: 100%;
+    max-width: 100%;
+    line-height: 1.2rem;
+    padding: 10px 25px 10px 20px;
+    max-width: 85%;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Message bubble for user and ai */
+.message-bubble.user {
+    background-color: var(--message-user-bg-dark);
+    color: var(--message-user-text-dark);
+}
+
+.message-bubble.ai {
+    background-color: var(--message-ai-bg-dark);
+    color: var(--message-ai-text-dark);
+}
+
+/* Message source */
+.message-source {
+    position: absolute;
+    top: 7px;
+    padding: 2px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Message source for user and ai */
+.message-source.user {
+    background-color: var(--message-user-source-bg-dark);
+    color: var(--message-user-source-text-dark);
+}
+
+.message-source.ai {
+    background-color: var(--message-ai-source-bg-dark);
+    color: var(--message-ai-source-text-dark);
+}
+
+/* Selected file context container */
+.selected-file-context-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 2px 4px;
+}
+  

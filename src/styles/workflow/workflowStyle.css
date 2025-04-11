@@ -1,0 +1,81 @@
+:root {
+    --workflow-canvas-bg-light: #fbfbfb;
+    --workflow-canvas-bg-dark: #0d1014;
+
+    --workflow-canvas-attribution-color-light: #fbfbfb;
+    --workflow-canvas-attribution-color-dark: #1b2129;
+
+    --workflow-canvas-controls-bg-light: #ffffff;
+    --workflow-canvas-controls-bg-dark: #202a46;
+
+    --workflow-canvas-controls-fg-light: #a1a1a1;
+    --workflow-canvas-controls-fg-dark: #6a6a6a;
+
+    --workflow-canvas-controls-border-light: #9c9c9c;
+    --workflow-canvas-controls-border-dark: #26293f;
+
+    --workflow-canvas-border-light: #9c9c9c;
+    --workflow-canvas-border-dark: #434855; 
+
+    --workflow-canvas-controls-fg-light-hover: #292929;
+    --workflow-canvas-controls-fg-dark-hover: #6a6a6a;
+
+    --toolbox-item-bg-color-light: #fbfbfb;
+    --toolbox-item-bg-color-dark: #131724;  
+    
+    --toolbox-item-border-color-light: #9c9c9c;
+    --toolbox-item-border-color-dark: #26293f;
+
+    --toolbox-item-text-color-light: #000000;
+    --toolbox-item-text-color-dark: #bdc1d0;    
+
+    --toolbox-item-outer-bg-color-light: #fbfbfb;
+    --toolbox-item-outer-bg-color-dark: #0f0f0f;    
+}   
+
+.react-flow__attribution {
+    background-color: var(--workflow-canvas-bg-dark) !important;
+    border: none !important;
+    padding: 6px 9px !important;
+    border-radius: 6px !important;
+    color: var(--workflow-canvas-attribution-color-dark) !important; 
+  }
+  
+  .react-flow__attribution a,
+  .react-flow__attribution a:visited {
+    color: var(--workflow-canvas-attribution-color-dark) !important;
+    background-color: transparent !important;
+    text-decoration: none; 
+  }
+
+/* Enhanced edge styling */
+.react-flow__edge {
+  z-index: 10;
+}
+
+.react-flow__edge-path {
+  stroke: #98b5ff !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.8;
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: #366dff !important;
+  stroke-width: 3px !important;
+  stroke-opacity: 1;
+}
+
+/* Make connection line more visible */
+.react-flow__connection-path {
+  stroke: #98b5ff !important;
+  stroke-width: 2px !important;
+}
+
+/* Make handles more visible */
+.react-flow__handle {
+  width: 10px !important;
+  height: 10px !important;
+  background-color: #366dff !important;
+  border: 2px solid #131724 !important;
+}

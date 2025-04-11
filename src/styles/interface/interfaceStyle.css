@@ -1,0 +1,28 @@
+:root {
+    --workflow-canvas-bg-light: #fbfbfb;
+    --workflow-canvas-bg-dark: #0d1014;
+
+    --workflow-canvas-controls-bg-light: #ffffff;
+    --workflow-canvas-controls-bg-dark: #181818;
+
+    --workflow-canvas-controls-fg-light: #a1a1a1;
+    --workflow-canvas-controls-fg-dark: #6a6a6a;
+
+    --workflow-canvas-border-light: #9c9c9c;
+    --workflow-canvas-border-dark: #1c2230; 
+
+    --workflow-canvas-controls-fg-light-hover: #292929;
+    --workflow-canvas-controls-fg-dark-hover: #6a6a6a;
+
+    --toolbox-item-bg-color-light: #fbfbfb;
+    --toolbox-item-bg-color-dark: #131724;  
+    
+    --toolbox-item-border-color-light: #9c9c9c;
+    --toolbox-item-border-color-dark: #26293f;
+
+    --toolbox-item-text-color-light: #000000;
+    --toolbox-item-text-color-dark: #bdc1d0;    
+
+    --toolbox-item-outer-bg-color-light: #fbfbfb;
+    --toolbox-item-outer-bg-color-dark: #0f0f0f;    
+}   

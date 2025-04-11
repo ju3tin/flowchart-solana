@@ -1,0 +1,31 @@
+:root {
+    --toolbar-text-light: #4b4b4b;
+    --toolbar-text-dark: #d4d4d4;
+
+    --toolbar-background-light: #fff;
+    --toolbar-background-dark: #1c212b;
+
+    --toolbar-button-border-light: #e0e0e0;
+    --toolbar-button-border-dark: #42537d;
+
+    --toolbar-button-text-light: #4b4b4b;
+    --toolbar-button-text-dark: #c0c8dd;
+
+    --toolbar-quick-actions-popover-bg-light: #f0f0f0;
+    --toolbar-quick-actions-popover-bg-dark: #171b27;
+
+    --toolbar-quick-actions-popover-item-bg-light: #f0f0f0;
+    --toolbar-quick-actions-popover-item-bg-dark: #181d26;  
+
+    --toolbar-quick-actions-popover-divide-light: #e0e0e0;
+    --toolbar-quick-actions-popover-divide-dark: #20232f;
+
+    --toolbar-deploy-modal-bg-light: #fff;
+    --toolbar-deploy-modal-bg-dark: #171b27;
+
+    --toolbar-deploy-modal-border-light: #e0e0e0;
+    --toolbar-deploy-modal-border-dark: #42537d;
+
+    --toolbar-deploy-modal-text-light: #4b4b4b;
+    --toolbar-deploy-modal-text-dark: #6276a7;
+}

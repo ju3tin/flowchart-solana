@@ -1,0 +1,28 @@
+:root {
+/* Light mode */
+    --popover-bg-light: #ffffff;
+    --popover-border-light: #b0b0b0;
+    --input-bg-light: #f5f5f5;
+    --input-border-light: #a0a0a0;
+    --project-list-bg-light: #f5f5f5;
+    --project-list-name-light: #505050;
+    --project-list-border-light: #c9c9c9;
+    --description-light: #505050;
+    --last-updated-light: #5d5d5d;
+    --delete-button-color-light: #c55b5b;
+
+/* Dark mode */
+    --popover-bg-dark: #171b27;
+    --popover-border-dark: #1c1f30;
+
+    --input-bg-dark: #0b0f18;
+    --input-border-dark: #212745;
+
+    --project-list-bg-dark: #101524;
+    --project-list-border-dark: #212745;
+
+    --project-list-name-dark: #d0d7f1;
+    --description-dark: #aaaec5;
+    --last-updated-dark: #818181;
+    --delete-button-color-dark: #b75c5c;
+}

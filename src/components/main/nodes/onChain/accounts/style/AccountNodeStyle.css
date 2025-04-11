@@ -1,0 +1,21 @@
+:root {
+/* Light Mode */
+  --account-accent-color-light: #75de9f;
+  --account-header-color-light: #474747;
+
+  --account-fields-border-light: #91c592;
+  --account-fields-input-color-light: #1e2339;
+  --account-fields-input-bg-light: #ffffff;
+  --account-fields-input-border-light: #91c592;
+
+/* Dark Mode */
+  --account-accent-color-dark: #1e2339;
+  --account-header-color-dark: #282a2e;
+  --account-header-bg-dark: #1e2339;
+
+  --account-section-menu-border-dark: #232841;
+  --account-section-menu-bg-dark: #313a57;
+  --account-section-menu-color-dark: #4f5b83;
+  --account-section-menu-input-bg-dark: #1a1f2f;
+  --account-section-menu-input-border-dark: #232841;
+}
