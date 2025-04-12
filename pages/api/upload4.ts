@@ -1,37 +1,31 @@
-// app/api/upload/route.ts
-import { v2 as cloudinary } from 'cloudinary';
-import { NextRequest } from 'next/server';
+// pages/api/upload4.ts
 
-// Setup your Cloudinary credentials
+import { v2 as cloudinary } from 'cloudinary';
+import type { NextApiRequest, NextApiResponse } from 'next';
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export async function POST(req: NextRequest) {
-  try {
-    const formData = await req.formData();
-    const file = formData.get('file') as File;
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
-    if (!file) {
-      return new Response(JSON.stringify({ error: 'No file uploaded.' }), { status: 400 });
+  try {
+    const formData = req.body.file;
+    
+    if (!formData) {
+      return res.status(400).json({ error: 'No file uploaded.' });
     }
 
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    const result = await cloudinary.uploader.upload(formData);
+    return res.status(200).json(result);
 
-    const result = await new Promise((resolve, reject) => {
-      cloudinary.uploader.upload_stream({}, (error, result) => {
-        if (error) return reject(error);
-        resolve(result);
-      }).end(buffer);
-    });
-
-    return Response.json(result);
-    
   } catch (error: any) {
     console.error(error);
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    return res.status(500).json({ error: error.message });
   }
 }
